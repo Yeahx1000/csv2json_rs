@@ -4,7 +4,9 @@ use thiserror::Error;
 #[derive(Error, Debug)]
 pub enum AppError {
     #[error("IO Error: {0}")]
-    InputOpener(#[from] std::io::Error),
+    InputOpen(#[from] std::io::Error),
+    #[error("IO Error: {0}")]
+    OutputWrite(#[from] std::io::Error),
     #[error("CSV Error: {0}")]
     Csv(#[from] csv::Error),
     #[error("JSON Error: {0}")]
