@@ -1,0 +1,9 @@
+/target
+**/*.rs.bk
+
+# MSVC Windows builds of rustc generate these, which store debugging information
+# .pdb files are not always generated, but it's safe to include
+*.pdb
+
+**/mutants.out*/
+.vscode/
