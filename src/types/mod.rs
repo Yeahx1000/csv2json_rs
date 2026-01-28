@@ -1,0 +1,1 @@
+// will house types (structs) used across the project
