@@ -5,8 +5,11 @@ CLI tool for converting CSV files to JSON arrays
 ## Tech Stack
 
 - Rust
-    - Crates:
-        - Serde + Clap
+  - Crates:
+    - Serde + serde_json
+    - Clap
+    - CSV
+    - Thiserror
 
 ## Goal
 
@@ -15,4 +18,3 @@ CLI tool for converting CSV files to JSON arrays
 - Handles headers
 - Some error logging (bad file, bad CSV, parse issues)
 - modular structure, organized by concerns
-
