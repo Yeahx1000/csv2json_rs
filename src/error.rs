@@ -1,4 +1,3 @@
-// this will have the error handling logic
 use thiserror::Error;
 
 #[derive(Error, Debug)]

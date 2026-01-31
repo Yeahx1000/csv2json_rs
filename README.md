@@ -49,6 +49,14 @@ csv2json-rs samples/sample.csv --pretty
 csv2json-rs samples/sample.csv --output-file output.json
 ```
 
+## Input
+
+```csv
+name,age,address
+John Doe,30,123 Main St Anytown USA
+Jane Smith,25,456 Elm St Anytown USA
+```
+
 ## Output
 
 ```json

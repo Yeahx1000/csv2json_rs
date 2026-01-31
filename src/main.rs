@@ -1,24 +1,9 @@
-// default main entry point
 use clap::Parser;
-use std::fs::File;
-use std::io::{self, Write};
-
 use csv2json_rs::convert::csv_to_json;
 use csv2json_rs::error::AppResult;
-
-#[derive(Parser, Debug)]
-#[command(
-    name = "csv2json-rs",
-    version,
-    about = "CLI tool for converting CSV files to JSON arrays"
-)]
-struct Args {
-    input_file: String,
-    #[arg(long)]
-    pretty: bool,
-    #[arg(long)]
-    output_file: Option<String>,
-}
+use csv2json_rs::types::Args;
+use std::fs::File;
+use std::io::{self, Write};
 
 pub fn main() {
     if let Err(e) = run() {
@@ -41,13 +26,13 @@ fn run() -> AppResult<()> {
 
     match args.output_file {
         Some(path) => {
-            // Writing output JSON to a specified file
+            // Writing output JSON to a specified file, if specified.
             let mut file = File::create(&path)?;
             file.write_all(output.as_bytes())?;
             println!("JSON saved to {path}");
         }
         None => {
-            // Write output JSON to stdout (locks for efficiency with large outputs)
+            // Write output JSON to stdout (what would be terminal, if no output file specified)
             let mut stdout: io::StdoutLock<'_> = io::stdout().lock();
             stdout.write_all(output.as_bytes())?;
             stdout.write_all(b"\n")?;
